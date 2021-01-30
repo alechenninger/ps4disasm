@@ -11,3 +11,5 @@ p2bin
 script/*.bin.*
 script/*.bin
 *.bin
+vm-build-all.sh
+.DS_Store
