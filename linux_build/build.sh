@@ -1,6 +1,4 @@
 #!/bin/bash
-set -x
-
 version="0.0.5b"
 
 this="${0##*/}"
