@@ -9,3 +9,5 @@ ps4built.prev.bin
 p2bin
 
 script/*.bin.*
+script/*.bin
+*.bin
