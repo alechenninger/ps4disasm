@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 version="0.0.5b"
 
@@ -207,8 +208,8 @@ cp "$1" "$workdir"
 asmfile="${workdir}/${1##*/}"
 
 # Patch and compile the assembly.
-path_patch "$asmfile" && msg "Path patch applied..." || errexit "Patching failed. '$tempdir' -directory is left undeleted."
-"${asl:="asl"}" -xx -c -A -l -shareout "$temp_h" -o "$temp_p" "$asmfile" > "$temp_log" 2>&1 \
+#path_patch "$asmfile" && msg "Path patch applied..." || errexit "Patching failed. '$tempdir' -directory is left undeleted."
+"${asl:="asl"}" -xx -c -A -l -i ./ -shareout "$temp_h" -o "$temp_p" "$asmfile" > "$temp_log" 2>&1 \
     && msg Source compiled... \
     || errexit "Source compiling failed. Temporary files are left intact inside '${workdir}' -directory."
 
