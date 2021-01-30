@@ -735,34 +735,156 @@
 	dc.b	"So, it really was a snare."
 	dc.b	$FF
 
-; $36
-	dc.b	"Chaz, we have work to do!"
-	dc.b	$FC
-	dc.b	"Hurry up and get ready!"
+; $36   "                                "
+	dc.b  $F4
+	dc.b  $02
+	dc.b  "What a time. I remember my first"
+	dc.b  "like it was yesterday..."
 	dc.b	$FF
 
 ; $37
 	dc.b	$F4
 	dc.b	$02
-	dc.b	"This is your first job since"
-	dc.b	$FC
-	dc.b	"you joined the Hunters Guild."
+	dc.b	"Our fortune took flight, on"
+	dc.b  $FC
+	dc.b  "swift wings from 'the desert"
+	dc.b  $FD
+	dc.b  "garden'."
 	dc.b	$FD
-	dc.b	"You'd better put your heart"
-	dc.b	$FC
-	dc.b	"into it!"
-	dc.b	$FD
+	
 	dc.b	$F4
 	dc.b	$01
-	dc.b	"So... I'm not a trainee anymore."
+	dc.b	"I'm ready, Alys."
 	dc.b	$FD
+	
 	dc.b	$F4
 	dc.b	$02
-	dc.b	"From this day on,"
+	dc.b	"It must feel exhilarating-your"
 	dc.b	$FC
-	dc.b	"you are a full-fledged partner!"
+	dc.b	"first assignment as a full-on"
 	dc.b	$FD
-	dc.b	"Now come on! Let's go!"
+	dc.b	"hunter!"
+	dc.b	$FD
+	
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"Feels...like it's meant to be."
+	dc.b	$FD
+	dc.b  "Like the pieces are finally "
+	dc.b  $FC
+	dc.b  "coming together."
+	dc.b	$FD
+	
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"Maybe so."
+	dc.b	$FD
+	
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"Nothing 'maybe' about it."
+	dc.b	$FD
+	
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"Let us see how you get on."
+	dc.b	$FD
+	
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"We'll meet head-on whatever the"
+	dc.b  $FC
+	dc.b  "guild throws our way."
+	dc.b	$FD
+	dc.b  "They'll have to go looking for"
+	dc.b  $FC
+	dc.b  "new cases instead of waiting for"
+	dc.b  $FD
+	dc.b  "the work to come in."
+	dc.b  $FD
+	
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"Steel yourself and do not boast."
+	dc.b	$FD
+	dc.b  "The afairs of men weigh heavy on"
+	dc.b  $FC
+	dc.b  "the spirit."
+	dc.b  $FD
+	dc.b  "And you must heed yours, Shay "
+	dc.b  $FC
+	dc.b  "Ashleigh, lest this word of sand"
+	dc.b  $FD
+	dc.b  "and sorrow pull you under."
+	dc.b  $FD
+	
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"The world...I owe nothing. I owe"
+	dc.b  $FC
+	dc.b  "you everything, Alys."
+	dc.b	$FD
+	dc.b  "And, to think...partners with a"
+	dc.b  $FC
+	dc.b  "hunter of your renown."
+	dc.b  $FD
+	
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"Fame. Trophies. Titles. Grains"
+	dc.b	$FC
+	dc.b  "of sand in a desert with no"
+	dc.b  $FD
+	dc.b  "name."
+	dc.b  $FD
+	dc.b  "Those who swear by these alone"
+	dc.b  $FC
+	dc.b  "are just as easily swept away."
+	dc.b  $FD
+	
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"Hmmm..."
+	dc.b  $FD
+	dc.b  "But you have to admit—"
+	dc.b	$FD
+	dc.b  "«She’ll make quite the mess, of"
+	dc.b  $FC
+	dc.b  "beast or any foe; An arm, a leg"
+	dc.b  $FD
+	dc.b  "and every toe, in eight strokes"
+	dc.b  $FC
+	dc.b  "or less.»"
+	dc.b  $FD
+	dc.b  "That kind of reputation has a "
+	dc.b  $FC
+	dc.b  "way of opening doors!"
+	dc.b  $FD
+	
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"And closing as many more. You"
+	dc.b	$FC
+	dc.b  "know I loathe that rhyme."
+	dc.b  $FD
+
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"Ever heard it sung out loud? It"
+	dc.b  $FC
+	dc.b  "can be quite lovely."
+	dc.b  $FD
+	
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"How flattering."
+	dc.b  $FD
+	
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"..."
+	dc.b  $FD
+
 	dc.b	$FF
 
 ; $38
