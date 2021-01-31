@@ -1019,6 +1019,33 @@
 	dc.b  "horizon..."
 	dc.b  $FD
 
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"Flying fast and true...like the"
+	dc.b  $FC
+	dc.b  "blade from my hand."
+	dc.b	$FD
+	dc.b  "Many lands, many faces..."
+	dc.b  $FD
+	dc.b  "Always finding my way...alone."
+	dc.b  $FC
+	dc.b  "For that was my choice."
+	dc.b  $FD
+
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"Alys..."
+	dc.b  $FD
+
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"Take heed. Would that I not live"
+	dc.b  $FC
+	dc.b  "to rue this day."
+	dc.b	$FD
+	dc.b  "Enough talk. We move!"
+	dc.b	$FD
+
 	dc.b	$FF
 
 ; $3A
