@@ -759,7 +759,7 @@
 	
 	dc.b	$F4
 	dc.b	$02
-	dc.b	"It must feel exhilarating-your"
+	dc.b	"It must feel exhilarating--your"
 	dc.b	$FC
 	dc.b	"first assignment as a full-on"
 	dc.b	$FD
@@ -846,15 +846,15 @@
 	dc.b	$01
 	dc.b	"Hmmm..."
 	dc.b  $FD
-	dc.b  "But you have to admit—"
+	dc.b  "But you have to admit--"
 	dc.b	$FD
-	dc.b  "«She’ll make quite the mess, of"
+	dc.b  $3D, "She'll make quite the mess, of"
 	dc.b  $FC
-	dc.b  "beast or any foe; An arm, a leg"
+	dc.b  "beast or any foe- An arm, a leg"
 	dc.b  $FD
 	dc.b  "and every toe, in eight strokes"
 	dc.b  $FC
-	dc.b  "or less.»"
+	dc.b  "or less.", $3E
 	dc.b  $FD
 	dc.b  "That kind of reputation has a "
 	dc.b  $FC
@@ -884,58 +884,142 @@
 	dc.b	$01
 	dc.b	"..."
 	dc.b  $FD
+	
+	dc.b	$F4
+	dc.b	$02
+  dc.b  "Well, aren't you eager to know"
+	dc.b  $FC
+	dc.b  "what troubles befall the "
+	dc.b  $FD
+	dc.b  $3D, "budding heads of our desert "
+	dc.b  $FC
+	dc.b  "garden estate", $3E, "--"
+	dc.b  $FD
+
+	dc.b  $F4
+	dc.b  $01
+	dc.b  $3D, "Come one come all, let not our "
+	dc.b  $FC
+	dc.b  "future garden bloom an hour too"
+	dc.b  $FD
+	dc.b  "late", $3E, ". Ah yes...Motavia Academy."
+	dc.b  $FD
+	
+	dc.b	$F4
+	dc.b	$02
+  dc.b  "A well-endowed patron for sure."
+	dc.b  $FD
+
+	dc.b  $F4
+	dc.b  $01
+	dc.b  "My first guess: they'd like us "
+	dc.b  $FC
+	dc.b  "to 'cut' the blooming genius who"
+	dc.b  $FD
+	dc.b  "composed that sickening verse."
+	dc.b  $FD
+
+	dc.b  $F4
+	dc.b  $02
+	dc.b  "Oh...but have you heard it sung"
+	dc.b  $FC
+	dc.b  "out loud?"
+	dc.b  $FD
+
+	dc.b  $F4
+	dc.b  $01
+	dc.b  "Ah...guess I had that coming."
+	dc.b  $FD
+
+	dc.b  $F4
+	dc.b  $02
+	dc.b  "But, you are right. There is a"
+	dc.b  $FC
+	dc.b  "certain pretense in our patron's"
+	dc.b  $FD
+	dc.b  "words and ways. It does not "
+	dc.b  $FC
+	dc.b  "always go down easily."
+	dc.b  $FD
+
+	dc.b  $F4
+	dc.b  $01
+	dc.b  "I'll say.  More like... "
+	dc.b  $FC
+	dc.b  "'butting' heads. I hear those "
+	dc.b  $FD
+	dc.b  "dormitory parties can be "
+	dc.b  $FC
+	dc.b  "raucous."
+	dc.b  $FD
+	dc.b  "So, uh, what's this really "
+	dc.b  $FC
+	dc.b  "about?"
+	dc.b  $FD
+
+	dc.b  $F4
+	dc.b  $02
+	dc.b  "They did not say.  They ask that"
+	dc.b  $FC
+	dc.b  "we come at once and are paying"
+	dc.b  $FD
+	dc.b  "handsomely for our discretion..."
+	dc.b  $FC
+	dc.b  "and haste."
+	dc.b  $FD
 
 	dc.b	$FF
 
-; $38
-	dc.b	$F4
-	dc.b	$01
-	dc.b	"Where are we off to this time?"
-	dc.b	$FD
-	dc.b	$F4
-	dc.b	$02
-	dc.b	"It's a bit far."
-	dc.b	$FC
-	dc.b	"We're going to Motavia Academy"
-	dc.b	$FD
-	dc.b	"in the town of Piata."
-	dc.b	$FD
-	dc.b	$F4
-	dc.b	$01
-	dc.b	"Wow! So we're going to"
-	dc.b	$FC
-	dc.b	"the Town of Learning!"
-	dc.b	$FD
-	dc.b	"I wonder what's happened there?"
-	dc.b	$FD
-	dc.b	$F4
-	dc.b	$02
-	dc.b	"Who knows? The message said"
-	dc.b	$FC
-	dc.b	"'Just come.'"
-	dc.b	$FD
-	dc.b	"We'll get the details"
-	dc.b	$FC
-	dc.b	"once we're there."
-	dc.b	$FF
+; ; $38
+; 	dc.b	$F4
+; 	dc.b	$01
+; 	dc.b	"Well, then. I suppose we're off?"
+; 	dc.b	$FD
 
-; $39
-	dc.b	$F4
-	dc.b	$01
-	dc.b	"Since we're going to be there"
-	dc.b	$FC
-	dc.b	"anyway, I'd sure like to tour"
-	dc.b	$FD
-	dc.b	"the Academy."
-	dc.b	$FD
-	dc.b	$F4
-	dc.b	$02
-	dc.b	"Is that all you can think about?"
-	dc.b	$FD
-	dc.b	"Get moving or I'll leave you"
-	dc.b	$FC
-	dc.b	"behind!"
-	dc.b	$FF
+; 	dc.b	$F4
+; 	dc.b	$02
+; 	dc.b	"We should not delay. The trek to"
+; 	dc.b	$FC
+; 	dc.b	"Piata will cost us the morning"
+; 	dc.b	$FD
+; 	dc.b	"light and then some."
+; 	dc.b	$FD
+
+; 	dc.b	$FF
+
+; ; $39
+; 	dc.b	$F4
+; 	dc.b	$01
+; 	dc.b	"What say we mark the occasion "
+; 	dc.b	$FC
+; 	dc.b	"with an upgrade in arms?"
+; 	dc.b	$FD
+; 	dc.b	"A sharper steel to make for "
+; 	dc.b	$FC
+; 	dc.b  "shorter work?
+; 	dc.b  $FD
+
+; 	dc.b	$F4
+; 	dc.b	$02
+; 	dc.b	"We shall see..."
+; 	dc.b	$FD
+	
+; 	dc.b  $F4
+; 	dc.b  $00
+; 	dc.b  "Alys peered out over the "
+; 	dc.b  $FC
+; 	dc.b  "Motavian wilds, beyond the "
+; 	dc.b  $FD
+; 	dc.b  "outskirts of the town, upon the"
+; 	dc.b  $FC
+; 	dc.b  "rising sun as it opened its eye"
+; 	dc.b  $FD
+; 	dc.b  "on a barren, windswept "
+; 	dc.b  $FC
+; 	dc.b  "horizon..."
+; 	dc.b  $FD
+
+; 	dc.b	$FF
 
 ; $3A
 	dc.b	"AW 2284. Monster attacks"
