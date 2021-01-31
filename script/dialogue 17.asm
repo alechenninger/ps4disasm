@@ -970,56 +970,56 @@
 
 	dc.b	$FF
 
-; ; $38
-; 	dc.b	$F4
-; 	dc.b	$01
-; 	dc.b	"Well, then. I suppose we're off?"
-; 	dc.b	$FD
+; $38
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"Well, then. I suppose we're off?"
+	dc.b	$FD
 
-; 	dc.b	$F4
-; 	dc.b	$02
-; 	dc.b	"We should not delay. The trek to"
-; 	dc.b	$FC
-; 	dc.b	"Piata will cost us the morning"
-; 	dc.b	$FD
-; 	dc.b	"light and then some."
-; 	dc.b	$FD
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"We should not delay. The trek to"
+	dc.b	$FC
+	dc.b	"Piata will cost us the morning"
+	dc.b	$FD
+	dc.b	"light and then some."
+	dc.b	$FD
 
-; 	dc.b	$FF
+	dc.b	$FF
 
-; ; $39
-; 	dc.b	$F4
-; 	dc.b	$01
-; 	dc.b	"What say we mark the occasion "
-; 	dc.b	$FC
-; 	dc.b	"with an upgrade in arms?"
-; 	dc.b	$FD
-; 	dc.b	"A sharper steel to make for "
-; 	dc.b	$FC
-; 	dc.b  "shorter work?
-; 	dc.b  $FD
+; $39
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"What say we mark the occasion "
+	dc.b	$FC
+	dc.b	"with an upgrade in arms?"
+	dc.b	$FD
+	dc.b	"A sharper steel to make for "
+	dc.b	$FC
+	dc.b  "shorter work?"
+	dc.b  $FD
 
-; 	dc.b	$F4
-; 	dc.b	$02
-; 	dc.b	"We shall see..."
-; 	dc.b	$FD
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"We shall see..."
+	dc.b	$FD
 	
-; 	dc.b  $F4
-; 	dc.b  $00
-; 	dc.b  "Alys peered out over the "
-; 	dc.b  $FC
-; 	dc.b  "Motavian wilds, beyond the "
-; 	dc.b  $FD
-; 	dc.b  "outskirts of the town, upon the"
-; 	dc.b  $FC
-; 	dc.b  "rising sun as it opened its eye"
-; 	dc.b  $FD
-; 	dc.b  "on a barren, windswept "
-; 	dc.b  $FC
-; 	dc.b  "horizon..."
-; 	dc.b  $FD
+	dc.b  $F4
+	dc.b  $00
+	dc.b  "Alys peered out over the "
+	dc.b  $FC
+	dc.b  "Motavian wilds, beyond the "
+	dc.b  $FD
+	dc.b  "outskirts of the town, upon the"
+	dc.b  $FC
+	dc.b  "rising sun as it opened its eye"
+	dc.b  $FD
+	dc.b  "on a barren, windswept "
+	dc.b  $FC
+	dc.b  "horizon..."
+	dc.b  $FD
 
-; 	dc.b	$FF
+	dc.b	$FF
 
 ; $3A
 	dc.b	"AW 2284. Monster attacks"
