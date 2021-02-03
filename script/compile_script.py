@@ -24,17 +24,18 @@ class ClosingQuote:
     return (self._quote, OpeningQuote)
 
 def dialog(context: Context, portrait: Data, dialog: str) -> Compilable:
+  dialog_stripped = dialog.strip()
+
   def compilable():
     lines = []
     line = ""
-    next = ""
     break_point = 0
     quote, next_quote = OpeningQuote().get()
 
     lines.append(data_const([byte_data('$F4')]))
     lines.append(data_const([portrait]))
     
-    def append():
+    def append(line: str):
       num_lines = len(lines)
       if num_lines % 2 == 1:
         lines.append(data_const([byte_data('$FC')]))
@@ -42,28 +43,27 @@ def dialog(context: Context, portrait: Data, dialog: str) -> Compilable:
         lines.append(data_const([byte_data('$FD')]))
       lines.append(data_const([string_data(line)]))
 
-    def add_next():
-      nonlocal line
-      if next.isspace():
-        return
-      if len(line) + len(next) < 32:
-        line += next
-      else:
-        append()
-        line = next.strip()
+    for i, c in enumerate(dialog_stripped):
+      # Update breakpoint to index if c is breakable based on context
+      # If line is too long, break at breakpoint and add to new line and reset breakpoint
+      # Else, add to line
+      if is_breakable(c, dialog_stripped, i):
+        break_point = i
 
-    for i, c in enumerate(dialog.strip()):
-      if c.isspace(): # is delimiter
-        add_next()
-        next = c
-      elif c in quotes:
-        next += quote
+      if len(line) == 32:
+        append(line[:break_point])
+        line = line[break_point:].lstrip()
+        break_point = 0
+
+      if c in quotes:
+        line += quote
         quote, next_quote = next_quote.get()
       else:
-        next += c
+        line += c
     
-    add_next()
-    append()
+    if len(line) > 0:
+      append(line)
+    
     lines.append(data_const([byte_data('$FD')]))
     
     return aggregate_compilable(lines)()
@@ -98,3 +98,12 @@ def string_data(d: str) -> Data:
 
 def byte_data(d: str) -> Data:
   return d;
+
+def is_breakable(c: str, dialog: str, i: int) -> bool:
+  if c.isspace():
+    return True
+
+  if c != '-' and i > 0 and dialog[i - 1] == '-':
+    return True
+  
+  return False

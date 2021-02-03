@@ -19,7 +19,7 @@ class CompileScriptTest(unittest.TestCase):
     asm = dialog(Context(), '$01', "Maintains  a double space.")
     self.assertEquals(asm(), '''	dc.b	$F4
 	dc.b	$01
-	dc.b	"Maintains  a double space"
+	dc.b	"Maintains  a double space."
 	dc.b	$FD''')
 
   def test_can_end_line_after_dash(self):
