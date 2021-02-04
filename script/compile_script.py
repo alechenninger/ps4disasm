@@ -6,10 +6,28 @@ import argparse
 Compilable = Callable[[], str]
 Data = str
 
-quotes = ['"', '“', '”']
+QUOTES = ['"', '“', '”']
+
+def string_data(d: str) -> Data:
+  return '"' + d + '"'
+
+def byte_data(d: int) -> Data:
+  if d > 255:
+    raise ValueError(d, 'must be <=255')
+  return f'${d:0>2X}';
+
+PORTRAIT = byte_data(244)
+NEW_LINE = byte_data(252)
+CONTINUE = byte_data(253)
+END_DIALOG = byte_data(255)
 
 class Context:
   pass
+
+tokens: dict[str, Callable[[Context, str], Compilable]] = {
+  "alys": lambda ctx, d: dialog(ctx, byte_data(2), d),
+  "shay": lambda ctx, d: dialog(ctx, byte_data(1), d)
+}
 
 class OpeningQuote:
   _quote = "<"
@@ -32,15 +50,15 @@ def dialog(context: Context, portrait: Data, dialog: str) -> Compilable:
     break_point = 0
     quote, next_quote = OpeningQuote().get()
 
-    lines.append(data_const([byte_data('$F4')]))
+    lines.append(data_const([PORTRAIT]))
     lines.append(data_const([portrait]))
     
     def append(line: str):
       num_lines = len(lines)
-      if num_lines % 2 == 1:
-        lines.append(data_const([byte_data('$FC')]))
-      elif num_lines > 2 and num_lines % 2 == 0:
-        lines.append(data_const([byte_data('$FD')]))
+      if (num_lines - 2) % 4 == 1:
+        lines.append(data_const([NEW_LINE]))
+      elif (num_lines - 2) % 4 == 3:
+        lines.append(data_const([CONTINUE]))
       lines.append(data_const([string_data(line)]))
 
     for i, c in enumerate(dialog_stripped):
@@ -48,23 +66,25 @@ def dialog(context: Context, portrait: Data, dialog: str) -> Compilable:
       # If line is too long, break at breakpoint and add to new line and reset breakpoint
       # Else, add to line
       if is_breakable(c, dialog_stripped, i):
-        break_point = i
+        break_point = len(line)
 
       if len(line) == 32:
         append(line[:break_point])
         line = line[break_point:].lstrip()
         break_point = 0
 
-      if c in quotes:
+      if c in QUOTES:
         line += quote
         quote, next_quote = next_quote.get()
+      elif c.isspace() and line == "":
+        pass
       else:
         line += c
     
     if len(line) > 0:
       append(line)
     
-    lines.append(data_const([byte_data('$FD')]))
+    lines.append(data_const([CONTINUE]))
     
     return aggregate_compilable(lines)()
   
@@ -72,17 +92,16 @@ def dialog(context: Context, portrait: Data, dialog: str) -> Compilable:
         
 
 def compile(script: str) -> str:
-  """
-  Algorithm:
-  1. Look at token in line
-  Token determines function to parse line
-  Pass it a context and the line
-  Result is something which can spit out assembly
-  Laziness might be important b/c context state can change while parsing.
+  ctx = Context()
+  return aggregate_compilable(
+    [compile_line(ctx, l) for l in script.splitlines()])()
 
-
-  """ 
-  pass
+def compile_line(ctx: Context, line: str) -> Compilable:
+  token, arg = line.split(sep=':', maxsplit=2)
+  token = token.lower().strip()
+  if token in tokens:
+    return tokens[token](ctx, arg)
+  raise ValueError(token, 'unknown token')
 
 def data_const(d: list[Data]) -> Compilable:
   return lambda: '	dc.b	' + ','.join(d)
@@ -92,12 +111,6 @@ def aggregate_compilable(comps: list[Compilable]) -> Compilable:
     return "\n".join(c() for c in comps)
 
   return compilable
-
-def string_data(d: str) -> Data:
-  return '"' + d + '"'
-
-def byte_data(d: str) -> Data:
-  return d;
 
 def is_breakable(c: str, dialog: str, i: int) -> bool:
   if c.isspace():

@@ -40,5 +40,46 @@ class CompileScriptTest(unittest.TestCase):
 	dc.b	"line--with dashes."
 	dc.b	$FD''')
 
+  def test_continues_second_line(self):
+    asm = dialog(Context(), '$01', "Our fortune took flight, on swift wings from 'the desert garden'.")
+    self.assertEquals(asm(), '''	dc.b	$F4
+	dc.b	$01
+	dc.b	"Our fortune took flight, on"
+	dc.b	$FC
+	dc.b	"swift wings from 'the desert"
+	dc.b	$FD
+	dc.b	"garden'."
+	dc.b	$FD''')
+
+  def test_continues_third_line(self):
+    asm = dialog(Context(), '$01', "We'll meet head-on whatever the guild throws our way.  They'll have to go looking for new cases instead of waiting for the work to come in.")
+    self.assertEquals(asm(), '''	dc.b	$F4
+	dc.b	$01
+	dc.b	"We'll meet head-on whatever the"
+	dc.b	$FC
+	dc.b	"guild throws our way.  They'll"
+	dc.b	$FD
+	dc.b	"have to go looking for new cases"
+	dc.b	$FC
+	dc.b	"instead of waiting for the work"
+	dc.b	$FD
+	dc.b	"to come in."
+	dc.b	$FD''')
+
+  def test_script(self):
+    asm = compile('''Alys: This is so great I can't believe this is a thing.
+Shay: How cool! Way to go!''')
+
+    self.assertEquals(asm, '''	dc.b	$F4
+	dc.b	$02
+	dc.b	"This is so great I can't believe"
+	dc.b	$FC
+	dc.b	"this is a thing."
+	dc.b	$FD
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"How cool! Way to go!"
+	dc.b	$FD''')
+
 if __name__ == '__main__':
     unittest.main()
