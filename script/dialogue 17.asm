@@ -756,7 +756,7 @@
 	dc.b	$01
 	dc.b	"I'm ready, Alys."
 	dc.b	$FD
-	
+
 	dc.b	$F4
 	dc.b	$02
 	dc.b	"It must feel exhilarating--your"
@@ -779,12 +779,129 @@
 	dc.b	$02
 	dc.b	"Maybe so."
 	dc.b	$FD
+
+	dc.b	$FF
+
+; see $42
+
+; $38
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"Well, then. I suppose we're off?"
+	dc.b	$FD
+
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"We should not delay. The trek to"
+	dc.b	$FC
+	dc.b	"Piata will cost us the morning"
+	dc.b	$FD
+	dc.b	"light and then some."
+	dc.b	$FD
+
+	dc.b	$FF
+
+; $39
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"What say we mark the occasion "
+	dc.b	$FC
+	dc.b	"with an upgrade in arms?"
+	dc.b	$FD
+	dc.b	"A sharper steel to make for "
+	dc.b	$FC
+	dc.b  "shorter work?"
+	dc.b  $FD
+
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"We shall see..."
+	dc.b	$FD
 	
+	dc.b  $F4
+	dc.b  $00
+	dc.b  "Alys peered out over the "
+	dc.b  $FC
+	dc.b  "Motavian wilds, beyond the "
+	dc.b  $FD
+	dc.b  "outskirts of the town, upon the"
+	dc.b  $FC
+	dc.b  "rising sun as it opened its eye"
+	dc.b  $FD
+	dc.b  "on a barren, windswept "
+	dc.b  $FC
+	dc.b  "horizon..."
+	dc.b  $FD
+
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"Flying fast and true...like the"
+	dc.b  $FC
+	dc.b  "blade from my hand."
+	dc.b	$FD
+	dc.b  "Many lands, many faces..."
+	dc.b  $FD
+	dc.b  "Always finding my way...alone."
+	dc.b  $FC
+	dc.b  "For that was my choice."
+	dc.b  $FD
+
+	dc.b	$F4
+	dc.b	$01
+	dc.b	"Alys..."
+	dc.b  $FD
+
+	dc.b	$F4
+	dc.b	$02
+	dc.b	"Take heed. Would that I not live"
+	dc.b  $FC
+	dc.b  "to rue this day."
+	dc.b	$FD
+	dc.b  "Enough talk. We move!"
+	dc.b	$FD
+
+	dc.b	$FF
+
+; $3A
+	dc.b	"AW 2284. Monster attacks"
+	dc.b	$FF
+
+; $3B
+	dc.b	"have swelled the ranks of those"
+	dc.b	$FF
+
+; $3C
+	dc.b	"who call themselves 'Hunters.'"
+	dc.b	$FF
+
+; $3D
+	dc.b	"But as the attacks become ever"
+	dc.b	$FF
+
+; $3E
+	dc.b	"more frequent and powerful, an"
+	dc.b	$FF
+
+; $3F
+	dc.b	"elite few begin to wonder what"
+	dc.b	$FF
+
+; $40
+	dc.b	"is behind this outbreak... and"
+	dc.b	$FF
+
+; $41
+	dc.b	"when and how will it all end?"
+	dc.b	$FF
+
+; $42	
 	dc.b	$F4
 	dc.b	$01
 	dc.b	"Nothing 'maybe' about it."
 	dc.b	$FD
-	
+	dc.b	$FF
+
+; $43	
 	dc.b	$F4
 	dc.b	$02
 	dc.b	"Let us see how you get on."
@@ -968,114 +1085,4 @@
 	dc.b  "and haste."
 	dc.b  $FD
 
-	dc.b	$FF
-
-; $38
-	dc.b	$F4
-	dc.b	$01
-	dc.b	"Well, then. I suppose we're off?"
-	dc.b	$FD
-
-	dc.b	$F4
-	dc.b	$02
-	dc.b	"We should not delay. The trek to"
-	dc.b	$FC
-	dc.b	"Piata will cost us the morning"
-	dc.b	$FD
-	dc.b	"light and then some."
-	dc.b	$FD
-
-	dc.b	$FF
-
-; $39
-	dc.b	$F4
-	dc.b	$01
-	dc.b	"What say we mark the occasion "
-	dc.b	$FC
-	dc.b	"with an upgrade in arms?"
-	dc.b	$FD
-	dc.b	"A sharper steel to make for "
-	dc.b	$FC
-	dc.b  "shorter work?"
-	dc.b  $FD
-
-	dc.b	$F4
-	dc.b	$02
-	dc.b	"We shall see..."
-	dc.b	$FD
-	
-	dc.b  $F4
-	dc.b  $00
-	dc.b  "Alys peered out over the "
-	dc.b  $FC
-	dc.b  "Motavian wilds, beyond the "
-	dc.b  $FD
-	dc.b  "outskirts of the town, upon the"
-	dc.b  $FC
-	dc.b  "rising sun as it opened its eye"
-	dc.b  $FD
-	dc.b  "on a barren, windswept "
-	dc.b  $FC
-	dc.b  "horizon..."
-	dc.b  $FD
-
-	dc.b	$F4
-	dc.b	$02
-	dc.b	"Flying fast and true...like the"
-	dc.b  $FC
-	dc.b  "blade from my hand."
-	dc.b	$FD
-	dc.b  "Many lands, many faces..."
-	dc.b  $FD
-	dc.b  "Always finding my way...alone."
-	dc.b  $FC
-	dc.b  "For that was my choice."
-	dc.b  $FD
-
-	dc.b	$F4
-	dc.b	$01
-	dc.b	"Alys..."
-	dc.b  $FD
-
-	dc.b	$F4
-	dc.b	$02
-	dc.b	"Take heed. Would that I not live"
-	dc.b  $FC
-	dc.b  "to rue this day."
-	dc.b	$FD
-	dc.b  "Enough talk. We move!"
-	dc.b	$FD
-
-	dc.b	$FF
-
-; $3A
-	dc.b	"AW 2284. Monster attacks"
-	dc.b	$FF
-
-; $3B
-	dc.b	"have swelled the ranks of those"
-	dc.b	$FF
-
-; $3C
-	dc.b	"who call themselves 'Hunters.'"
-	dc.b	$FF
-
-; $3D
-	dc.b	"But as the attacks become ever"
-	dc.b	$FF
-
-; $3E
-	dc.b	"more frequent and powerful, an"
-	dc.b	$FF
-
-; $3F
-	dc.b	"elite few begin to wonder what"
-	dc.b	$FF
-
-; $40
-	dc.b	"is behind this outbreak... and"
-	dc.b	$FF
-
-; $41
-	dc.b	"when and how will it all end?"
 	dc.b	$FF
