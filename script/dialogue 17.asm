@@ -945,7 +945,9 @@
 	dc.b  $FC
 	dc.b  "hunter of your renown."
 	dc.b  $FD
-	
+	dc.b  $FF
+
+; $44
 	dc.b	$F4
 	dc.b	$02
 	dc.b	"Fame. Trophies. Titles. Grains"
@@ -984,7 +986,9 @@
 	dc.b	$FC
 	dc.b  "know I loathe that rhyme."
 	dc.b  $FD
+	dc.b  $FF
 
+; $45
 	dc.b	$F4
 	dc.b	$01
 	dc.b	"Ever heard it sung out loud? It"
