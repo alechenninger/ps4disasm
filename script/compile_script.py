@@ -26,7 +26,14 @@ class Context:
 
 tokens: dict[str, Callable[[Context, str], Compilable]] = {
   "alys": lambda ctx, d: dialog(ctx, byte_data(2), d),
-  "shay": lambda ctx, d: dialog(ctx, byte_data(1), d)
+  "shay": lambda ctx, d: dialog(ctx, byte_data(1), d),
+  "narrator": lambda ctx, d: dialog(ctx, byte_data(0), d),
+}
+
+transforms: dict[str, str] = {
+  '’': "'",
+  '': "'",
+  '–': '--',
 }
 
 class OpeningQuote:
@@ -62,6 +69,8 @@ def dialog(context: Context, portrait: Data, dialog: str) -> Compilable:
       lines.append(data_const([string_data(line)]))
 
     for i, c in enumerate(dialog_stripped):
+      c = transforms.get(c, c)
+
       # Update breakpoint to index if c is breakable based on context
       # If line is too long, break at breakpoint and add to new line and reset breakpoint
       # Else, add to line
@@ -109,7 +118,6 @@ def data_const(d: list[Data]) -> Compilable:
 def aggregate_compilable(comps: list[Compilable]) -> Compilable:
   def compilable():
     return "\n".join(c() for c in comps)
-
   return compilable
 
 def is_breakable(c: str, dialog: str, i: int) -> bool:
@@ -117,6 +125,9 @@ def is_breakable(c: str, dialog: str, i: int) -> bool:
     return True
 
   if c != '-' and i > 0 and dialog[i - 1] == '-':
+    return True
+
+  if c != '.' and i > 0 and dialog[i - 1] == '.':
     return True
   
   return False
