@@ -802,6 +802,7 @@
 	dc.b	$FF
 
 ; $39
+	if skip_opening=0
 	dc.b	$F4
 	dc.b	$01
 	dc.b	"What say we mark the occasion "
@@ -859,39 +860,40 @@
 	dc.b	$FD
 	dc.b  "Enough talk. We move!"
 	dc.b	$FD
+	endif
 
 	dc.b	$FF
 
 ; $3A
-	dc.b	"AW 2284. Monster attacks"
+	dc.b	"AW 2284. Monster attacks1"
 	dc.b	$FF
 
 ; $3B
-	dc.b	"have swelled the ranks of those"
+	dc.b	"have swelled the ranks of 2"
 	dc.b	$FF
 
 ; $3C
-	dc.b	"who call themselves 'Hunters.'"
+	dc.b	"who call themselves '3.'"
 	dc.b	$FF
 
 ; $3D
-	dc.b	"But as the attacks become ever"
+	dc.b	"But as the attacks become 4"
 	dc.b	$FF
 
 ; $3E
-	dc.b	"more frequent and powerful, an"
+	dc.b	"more frequent and powerful, 5"
 	dc.b	$FF
 
 ; $3F
-	dc.b	"elite few begin to wonder what"
+	dc.b	"elite few begin to wonder 6"
 	dc.b	$FF
 
 ; $40
-	dc.b	"is behind this outbreak... and"
+	dc.b	"is behind this outbreak... 7"
 	dc.b	$FF
 
 ; $41
-	dc.b	"when and how will it all end?"
+	dc.b	"when and how will it all 8?"
 	dc.b	$FF
 
 ; $42	
@@ -1090,4 +1092,8 @@
 	dc.b  "and haste."
 	dc.b  $FD
 
+	dc.b	$FF
+
+; $46
+	dc.b	"test test test test"
 	dc.b	$FF

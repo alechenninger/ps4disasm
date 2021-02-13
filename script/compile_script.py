@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from collections.abc import Callable
 from enum import Enum
 
@@ -31,6 +33,7 @@ tokens: dict[str, Callable[[Context, str], Compilable]] = {
 }
 
 transforms: dict[str, str] = {
+  '‘': "'",
   '’': "'",
   '': "'",
   '–': '--',
@@ -131,3 +134,10 @@ def is_breakable(c: str, dialog: str, i: int) -> bool:
     return True
   
   return False
+
+parser = argparse.ArgumentParser(description='Compiles a script DSL into PSIV dialog asm')
+parser.add_argument('script',type=open)
+args = parser.parse_args()
+
+with args.script as script:
+  print(compile(script.read()))
