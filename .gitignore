@@ -13,3 +13,6 @@ script/*.bin
 *.bin
 vm-build-all.sh
 .DS_Store
+
+.vscode
+__pycache__
