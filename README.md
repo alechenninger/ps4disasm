@@ -1,4 +1,7 @@
-# ps4disasm
-Phantasy Star IV Disassembly for Mega Drive/Genesis
+# PS4 script rewrite
 
-DISCLAIMER: Any and all content presented in this repository is presented for informational and educational purposes only. Commercial usage is expressly prohibited. I do not claim ownership of any code in this repository. You assume any and all responsibility for using this content responsibly. I do not claim responsibility or warranty.
+A Phantasy Star IV script rewrite.
+
+Script by Michael Henninger ("Genji Harvester")
+
+Credit to @lory90 for original disassembly and bugfixes.
