@@ -865,35 +865,41 @@
 	dc.b	$FF
 
 ; $3A
-	dc.b	"AW 2284. Monster attacks1"
+	dc.b	"AW 2884. Monster attacks have sw"
+	dc.b	"elled"
 	dc.b	$FF
 
 ; $3B
-	dc.b	"have swelled the ranks of 2"
+	dc.b	"the ranks of the 'hunters,' call"
+	dc.b	"ed"
 	dc.b	$FF
 
 ; $3C
-	dc.b	"who call themselves '3.'"
+	dc.b	"upon to quell the ever-widening"
 	dc.b	$FF
 
-; $3D
-	dc.b	"But as the attacks become 4"
+; $3D	
+	dc.b	"outbreak. And there are few soul"
+	dc.b	"s who"
 	dc.b	$FF
-
+	
 ; $3E
-	dc.b	"more frequent and powerful, 5"
+	dc.b	"dare to wonder..."
 	dc.b	$FF
-
+	
 ; $3F
-	dc.b	"elite few begin to wonder 6"
+	dc.b	"What might it portend? The bitte"
+	dc.b	"r old"
 	dc.b	$FF
 
-; $40
-	dc.b	"is behind this outbreak... 7"
+; 40
+	dc.b	"gods, come to exact their price?"
+	dc.b	"  The"
 	dc.b	$FF
-
-; $41
-	dc.b	"when and how will it all 8?"
+	
+; 41
+	dc.b	"rise and fall, the dusk and dawn, the"
+	dc.b	", the"
 	dc.b	$FF
 
 ; $42	
@@ -1095,5 +1101,9 @@
 	dc.b	$FF
 
 ; $46
-	dc.b	"test test test test"
+	dc.b	"beginning and the end...of the"
+	dc.b	$FF
+
+; $47
+	dc.b	"millennium..."
 	dc.b	$FF

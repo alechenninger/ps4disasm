@@ -30,6 +30,7 @@ tokens: dict[str, Callable[[Context, str], Compilable]] = {
   "alys": lambda ctx, d: dialog(ctx, byte_data(2), d),
   "shay": lambda ctx, d: dialog(ctx, byte_data(1), d),
   "narrator": lambda ctx, d: dialog(ctx, byte_data(0), d),
+  "text": lambda ctx, t: text(ctx, t),
 }
 
 transforms: dict[str, str] = {
@@ -101,7 +102,52 @@ def dialog(context: Context, portrait: Data, dialog: str) -> Compilable:
     return aggregate_compilable(lines)()
   
   return compilable
-        
+
+def text(context: Context, dialog: str) -> Compilable:
+  dialog_stripped = dialog.strip()
+
+  def compilable():
+    lines = []
+    line = ""
+    break_point = 0
+    quote, next_quote = OpeningQuote().get()
+    
+    def append(line: str):
+      num_lines = len(lines)
+      if (num_lines - 2) % 2 == 1:
+        lines.append(data_const([END_DIALOG]))
+      lines.append(data_const([string_data(line)]))
+
+    for i, c in enumerate(dialog_stripped):
+      c = transforms.get(c, c)
+
+      # Update breakpoint to index if c is breakable based on context
+      # If line is too long, break at breakpoint and add to new line and reset breakpoint
+      # Else, add to line
+      if is_breakable(c, dialog_stripped, i):
+        break_point = len(line)
+
+      if len(line) == 32:
+        append(line[:break_point])
+        line = line[break_point:].lstrip()
+        break_point = 0
+
+      if c in QUOTES:
+        line += quote
+        quote, next_quote = next_quote.get()
+      elif c.isspace() and line == "":
+        pass
+      else:
+        line += c
+    
+    if len(line) > 0:
+      append(line)
+    
+    lines.append(data_const([END_DIALOG]))
+    
+    return aggregate_compilable(lines)()
+  
+  return compilable        
 
 def compile(script: str) -> str:
   ctx = Context()
