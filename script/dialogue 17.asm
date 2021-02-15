@@ -866,12 +866,10 @@
 
 ; $3A
 	dc.b	"AW 2884. Monster attacks have sw"
-	dc.b	"elled"
 	dc.b	$FF
 
 ; $3B
 	dc.b	"the ranks of the 'hunters,' call"
-	dc.b	"ed"
 	dc.b	$FF
 
 ; $3C
@@ -880,7 +878,6 @@
 
 ; $3D	
 	dc.b	"outbreak. And there are few soul"
-	dc.b	"s who"
 	dc.b	$FF
 	
 ; $3E
@@ -899,7 +896,6 @@
 	
 ; 41
 	dc.b	"rise and fall, the dusk and dawn, the"
-	dc.b	", the"
 	dc.b	$FF
 
 ; $42	
@@ -1106,4 +1102,16 @@
 
 ; $47
 	dc.b	"millennium..."
+	dc.b	$FF
+
+; $48
+	dc.b	"elled"
+	dc.b	$FF
+
+; $49
+	dc.b	"ed"
+	dc.b	$FF
+
+; $4A
+	dc.b	"s who"
 	dc.b	$FF

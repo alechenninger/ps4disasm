@@ -38,6 +38,7 @@ transforms: dict[str, str] = {
   '’': "'",
   '': "'",
   '–': '--',
+  '…': '...',
 }
 
 class OpeningQuote:
