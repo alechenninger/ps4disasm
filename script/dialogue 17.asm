@@ -802,13 +802,13 @@
 	dc.b	$FF
 
 ; $39
-	if skip_opening=0
 	dc.b	$F4
 	dc.b	$01
 	dc.b	"What say we mark the occasion "
 	dc.b	$FC
 	dc.b	"with an upgrade in arms?"
 	dc.b	$FD
+	if skip_opening=0
 	dc.b	"A sharper steel to make for "
 	dc.b	$FC
 	dc.b  "shorter work?"
@@ -893,7 +893,7 @@
 	dc.b	$FF
 
 ; $41
-	dc.b	"And there are few souls who dare"
+	dc.b	"And there are few souls who"
 	dc.b	$FF
 
 ; $42
@@ -1095,7 +1095,7 @@
 	dc.b	$FF
 
 ; $46
-	dc.b	"to"
+	dc.b	"dare to"
 	dc.b	$FF
 
 ; $47
