@@ -865,40 +865,38 @@
 	dc.b	$FF
 
 ; $3A
-	dc.b	"AW 2884. Monster attacks have sw"
+	dc.b	"AW 2884.  Monster attacks have"
 	dc.b	$FF
 
 ; $3B
-	dc.b	"the ranks of the 'hunters,' call"
+	dc.b	"swelled the ranks of the"
 	dc.b	$FF
 
 ; $3C
-	dc.b	"upon to quell the ever-widening"
+	dc.b	"'hunters,'"
 	dc.b	$FF
 
-; $3D	
-	dc.b	"outbreak. And there are few soul"
+; $3D
+	dc.b	"called upon to quell the ever-"
 	dc.b	$FF
-	
+
 ; $3E
-	dc.b	"dare to wonder..."
+	dc.b	"widening outbreak. The quaking"
 	dc.b	$FF
-	
+
 ; $3F
-	dc.b	"What might it portend? The bitte"
-	dc.b	"r old"
+	dc.b	"sands roar. And the sun burns"
 	dc.b	$FF
 
-; 40
-	dc.b	"gods, come to exact their price?"
-	dc.b	"  The"
-	dc.b	$FF
-	
-; 41
-	dc.b	"rise and fall, the dusk and dawn, the"
+; $40
+	dc.b	"hot."
 	dc.b	$FF
 
-; $42	
+; $41
+	dc.b	"And there are few souls who dare"
+	dc.b	$FF
+
+; $42
 	dc.b	$F4
 	dc.b	$01
 	dc.b	"Nothing 'maybe' about it."
@@ -1097,21 +1095,41 @@
 	dc.b	$FF
 
 ; $46
-	dc.b	"beginning and the end...of the"
+	dc.b	"to"
 	dc.b	$FF
 
 ; $47
-	dc.b	"millennium..."
+	dc.b	"wonder... What might it all"
 	dc.b	$FF
 
 ; $48
-	dc.b	"elled"
+	dc.b	"portend?"
 	dc.b	$FF
 
 ; $49
-	dc.b	"ed"
+	dc.b	"The bitter, old gods, come to"
 	dc.b	$FF
 
 ; $4A
-	dc.b	"s who"
+	dc.b	"exact"
+	dc.b	$FF
+
+; $4B
+	dc.b	"their price?"
+	dc.b	$FF
+
+; $4C
+	dc.b	"The rise and fall,"
+	dc.b	$FF
+
+; $4D
+	dc.b	"the dusk and dawn,"
+	dc.b	$FF
+
+; $4E
+	dc.b	"the beginning and the end..."
+	dc.b	$FF
+
+; $4F
+	dc.b	"of the millennium..."
 	dc.b	$FF
