@@ -10,9 +10,10 @@ p2bin
 
 script/*.bin.*
 script/*.bin
-*.bin
 vm-build-all.sh
 .DS_Store
 
 .vscode
 __pycache__
+
+out/

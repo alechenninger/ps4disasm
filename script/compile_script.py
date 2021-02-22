@@ -34,10 +34,9 @@ tokens: dict[str, Callable[[Context, str], Compilable]] = {
 }
 
 transforms: dict[str, str] = {
-  '‘': "'",
+  '‘': "[",
   '’': "'",
-  '': "'",
-  '–': '--',
+  '–': '=',
   '…': '...',
 }
 
