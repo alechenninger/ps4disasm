@@ -15,5 +15,5 @@
 	charset '%', $3F
 	charset '(', 75
 	charset ')', 76
-	charset '', 74
+	charset '[', 74
 	charset '=', 77
