@@ -11,6 +11,8 @@ p2bin
 script/*.bin.*
 script/*.bin
 vm-build-all.sh
+auto-build.sh
+stop-auto-build.sh
 .DS_Store
 
 .vscode
