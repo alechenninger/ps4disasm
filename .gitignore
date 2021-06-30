@@ -1,0 +1,11 @@
+*~
+ps4.h
+ps4.p
+ps4.lst
+ps4built.bin
+ps4built.prev.bin
+
+# Linux builder creates this
+p2bin
+
+script/*.bin.*
