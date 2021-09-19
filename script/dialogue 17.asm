@@ -921,7 +921,8 @@
 	dc.b  $FD
 	dc.b  "the work to come in."
 	dc.b  $FD
-	dc.b  $F7
+	; we'll cut it down to size
+	dc.b  $F7 
 	
 	dc.b	$F4
 	dc.b	$02

@@ -19,3 +19,4 @@ stop-auto-build.sh
 __pycache__
 
 out/
+scenes/
