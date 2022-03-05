@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
+import os
 import sys
 import re
 import pathlib
 import subprocess
 import io
+from struct import pack
 
 # change this if the start address is changed in ps4constants.asm
 Dialogue_Trees_ADDRESS = 0xFF3000
@@ -13,6 +15,129 @@ MAX_TEXT_SIZE = MAX_TEXT_ADDRESS - Dialogue_Trees_ADDRESS
 
 # alternatively, if you're not 100% sure, max length in US script is 7220 bytes
 #MAX_TEXT_SIZE = 7220
+
+
+class DescField(object):
+	
+	def __init__(self):
+		self.value = 0
+		self.cursor = 0
+		self.pos = 0
+
+
+def getInputBuffer(inputName):
+	buffer = []
+	with open(inputName, "rb") as input:
+		data = input.read(1)
+		while data:
+			buffer.append(ord(data))
+			data = input.read(1)
+	return buffer
+
+def writeDescField(output, df):
+	output.seek(df.pos)
+	output.write(pack("<H", df.value))
+	output.seek(0, os.SEEK_END)
+
+def nextDescCrs(output, df):
+	df.cursor += 1
+	if df.cursor >= 16:
+		output.seek(df.pos)
+		output.write(pack("<H", df.value))
+		# new definition word
+		df = DescField()
+		output.seek(0, os.SEEK_END)
+		df.pos = output.tell()
+	return df
+
+def kosCompress(inputName, outputName, slideWinSize, recLen):
+	buffer = getInputBuffer(inputName)
+	buffLen = len(buffer)
+	df = DescField()
+	with open(outputName, "wb+") as output:
+		basePtr = 0
+		while buffLen > basePtr:
+			imax = basePtr - slideWinSize
+			if imax < 0:
+				imax = 0
+			maxCopy = buffLen - basePtr
+			if maxCopy > recLen:
+				maxCopy = recLen
+			i = basePtr
+			i -= 1
+			count = 1
+			ioffset = 0
+			while i >= imax:
+				j = 0
+				while buffer[basePtr+j] == buffer[i+j]:
+					j += 1
+					if j >= maxCopy:
+						break
+				if j > count:
+					count = j
+					ioffset = i - basePtr
+				i -= 1
+			
+			if count == 1:
+				# literal
+				num = buffer[basePtr]
+				df.value |= 1 << df.cursor
+				df = nextDescCrs(output, df)
+				writeDescField(output, df)
+				output.write(bytes([num]))
+			elif count == 2 and ioffset < -256:
+				# literal
+				num = buffer[basePtr]
+				df.value |= 1 << df.cursor
+				df = nextDescCrs(output, df)
+				writeDescField(output, df)
+				output.write(bytes([num]))
+				count -= 1
+			elif count >= 2 and count <= 5 and ioffset >= -256:
+				# RLE
+				repeat = count - 2
+				df = nextDescCrs(output, df) # leave bit 0 and go to next cursor
+				df = nextDescCrs(output, df) # leave bit 0 and go to next cursor
+				high = ((repeat >> 1) & 1) << df.cursor
+				df.value |= high
+				df = nextDescCrs(output, df)
+				low = (repeat & 1) << df.cursor
+				df.value |= low
+				df = nextDescCrs(output, df)
+				writeDescField(output, df)
+				offsByte = ioffset & 0xFF
+				output.write(bytes([offsByte]))
+			else:
+				repeat = count - 2
+				df = nextDescCrs(output, df) # leave bit 0 and go to next cursor
+				df.value |= 1 << df.cursor
+				df = nextDescCrs(output, df)
+				writeDescField(output, df)
+				low = ioffset & 0xFF
+				output.write(bytes([low]))
+				high = (ioffset & 0x1F00) >> 5
+				lowCopy = 0
+				if repeat <= 7:
+					lowCopy = repeat
+				high |= lowCopy
+				output.write(bytes([high]))
+				if repeat > 7:
+					repeat += 1
+					output.write(bytes([repeat]))
+				
+			basePtr += count
+			
+		
+		# terminate with 00 F0 00
+		df = nextDescCrs(output, df)
+		df.value |= 1 << df.cursor
+		writeDescField(output, df)
+		output.write(b'\x00\xF0\x00')
+		
+		# pad to 16 bytes
+		sz = output.tell()
+		if sz % 16 != 0:
+			output.write(bytes(16 - sz%16))
 
 def decodenum(s):
 	if s[0] == '$':
@@ -397,10 +522,12 @@ for fname in remainder:
 		if idx != 0:
 			print("backing up", bindest, "to", bindest2)
 			bindest.rename(bindest2)
-		subprocess.run(['../compressors/koscmp', str(dest.resolve(strict=True)), str(bindest.resolve())])
+        
+		kosCompress(dest, bindest, 8192, 256)
+		#subprocess.run(['../compressors/koscmp', str(dest.resolve(strict=True)), str(bindest.resolve())])
 		# pad to 16 bytes
-		with open(bindest, "r+b") as f:
-			f.seek(0, io.SEEK_END)
-			sz = f.tell()
-			if sz % 16 != 0:
-				f.write(bytes(16 - sz%16))
+		#with open(bindest, "r+b") as f:
+		#	f.seek(0, io.SEEK_END)
+		#	sz = f.tell()
+		#	if sz % 16 != 0:
+		#		f.write(bytes(16 - sz%16))

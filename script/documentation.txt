@@ -68,7 +68,8 @@
 ;
 ; 3. There's a koscmp executable in the 'compressors' folder; if you
 ;    decide to move it, make sure you update its path referenced in
-;    the 'compress_script.py' file.
+;    the 'compress_script.py' file. (This is now optional as there's
+;    the compressor routine inside the script itself)
 ;
 ; 4. Run the compress_script.py script using Python 3.6+. Again I
 ;    may supply a Windows executable using pyInstaller at one point.
