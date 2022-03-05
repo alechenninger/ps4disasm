@@ -13,6 +13,7 @@ script/*.bin
 vm-build-all.sh
 auto-build.sh
 stop-auto-build.sh
+drive-sync.sh
 .DS_Store
 
 .vscode
