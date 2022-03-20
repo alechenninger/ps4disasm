@@ -1,56 +1,31 @@
-# notes
+# how things work
 
-# todo
+## events and cutscenes
 
-## italics
+See EventPtrs for how "event index" (event_index ram addr) is used. Dialog F6 control code hooks up
+into this. Use when not already within an event. Enables any NPC dialog to hook into event also.
+These run FieldRoutine_Event, which may in turn run a cutscene instead.
 
-clean up font files
+Cutscenes are similar to other events. They use the same event index, but with the 16th bit set (
+0x80__). However, they use a different routine FieldRoutine_Cutscene and different map load flag 
+when done. Probably because cutscenes don't render the field.
 
-compile to italics in charset
+Map events are different, they are events which are checked on every move, so they can trigger at 
+arbitrary conditions. See RunEventsJmpTbl. RunEvent routines are just what check if an event should
+trigger, what's triggered is the usual event kind using event_index per above.
 
-use markdown or html (gdocs addon can spit out either. alternatively can consider a custom google app script to do more)
+## maps
 
-## preview output
+map objects define dialog for npc. dialog for npc looked up in map's dialog tree.
 
-show where lines will break?
+## event flags
 
-## workflow
+See constants file for event flags
 
-scene compiler in dart
-compile to gdoc addon
+# how to script
 
-https://medium.com/@florian_32814/google-apps-scripts-with-dart-402c042fa606
-https://pub.dev/packages/apps_script_tools
+i need to generate a dialog tree for a map.
 
-web server to do actual assembly compilation
+instead of arbitrary scene ids, these will need to be dialog ids?
 
-https://github.com/googleworkspace/apps-script-oauth2
-https://developers.google.com/apps-script/reference/script/script-app#getoauthtoken
-
-only thing missing is git commit
-it is possible to use github API from app script also
-but if its easy to copy from gdocs, not too big of a deal
-
-## dsl
-
-script and events
-
-how to deal with event code we don't want a dsl for without cluttering up the dsl?
-
-Could just add select custom keywords for specific points.
-
-```
-Alys: Maybe so...
-Movement: Party stops following leader
-Event:
-  Move: Alys to 592, 592
-Event:
-  Movement: Y axis first
-  Move: Alys to $2A0, $250
-  Move: Shay to $280, $250
-Event:
-
-Alys: 
-```
-
-```
+or, i can find a position in an existing dialog tree and update that?
