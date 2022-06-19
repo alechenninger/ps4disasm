@@ -207,7 +207,9 @@ asmfile="${workdir}/${1##*/}"
 
 # Patch and compile the assembly.
 #path_patch "$asmfile" && msg "Path patch applied..." || errexit "Patching failed. '$tempdir' -directory is left undeleted."
-"${asl:="asl"}" -xx -c -A -l -i ./ -shareout "$temp_h" -o "$temp_p" "$asmfile" > "$temp_log" 2>&1 \
+#"${asl:="asl"}" -xx -c -A -l -i ./ -shareout "$temp_h" -o "$temp_p" "$asmfile" > "$temp_log" 2>&1 \
+# Removing stdout/stderr redirection
+"${asl:="asl"}" -xx -c -A -l -i ./ -shareout "$temp_h" -o "$temp_p" "$asmfile" \
     && msg Source compiled... \
     || errexit "Source compiling failed. Temporary files are left intact inside '${workdir}' -directory."
 
