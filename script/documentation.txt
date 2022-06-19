@@ -14,7 +14,7 @@
 		$B = Sets event flag
 		$C = After the Profound Darkness battle, it updates stuff when Elsydeon breaks
 ; $F3 = NPC keeps its original facing direction
-; $F4 = Loads portrait right above the dialogue window; the byte after this holds the portrait index.
+; $F4 = Loads portrait right above the dialogue window; the byte after this holds the portrait index. (DialoguePortraitArtPtrs)
 		For the Talk option, there's an extra byte to account for which is the portrait location. Values are as follows:
 			0 = left
 			1 = center
