@@ -10,7 +10,7 @@ UpdateSound:
 	beq.s	loc_D0030
 	jsr	DoSoundQueue(pc)
 loc_D0030:
-	jsr	PlaySoundID(pc)
+	jsr	PlaySoundID(pc) ; D1030
 	lea	$40(a6), a5
 	tst.b	(a5)
 	bpl.s	loc_D0040
@@ -756,21 +756,22 @@ PSGInitBytes:
 
 PlaySFX:
 	lea	(SFXPtrs).l, a0
-	subi.b	#$B5, d7
+	subi.b	#$B5, d7 ; same as sfxptrs id start. not sure why this value
 	lsl.w	#2, d7
-	movea.l	(a0,d7.w), a3
+	movea.l	(a0,d7.w), a3 ; sfx pointer e.g SFX_Selection in a3
 	movea.l	a3, a1
 	moveq	#0, d1
-	move.w	(a1)+, d1
-	add.l	a3, d1
+	move.w	(a1)+, d1 ; expected 18 but got e7d4f?
+	add.l	a3, d1 
 	move.b	(a1)+, d5
 	moveq	#0, d7
 	move.b	(a1)+, d7
 	subq.b	#1, d7
 	moveq	#$30, d6
-loc_D0800:
+loc_D0800: ; looks like this loops through sound data for sfx
 	moveq	#0, d3
-	move.b	$1(a1), d3
+	move.b	$1(a1), d3 ; which bgm channel to play for sound (left shiftedx3)
+										 ; but got 85 instead of 5?
 	move.b	d3, d4
 	bmi.s	loc_D081C
 	subq.w	#2, d3
@@ -781,7 +782,7 @@ loc_D0800:
 	bra.s	loc_D0842
 loc_D081C:
 	lsr.w	#3, d3
-	movea.l	BGMChnPtrs(pc,d3.w), a5
+	movea.l	BGMChnPtrs(pc,d3.w), a5 ; D181E - first time a5 is ff5190 (bgmchnptrs + $10)
 	bset	#2, (a5)
 	cmpi.b	#$C0, d4
 	bne.s	loc_D0842
@@ -791,18 +792,18 @@ loc_D081C:
 	bchg	#5, d0
 	move.b	d0, ($C00011).l
 loc_D0842:
-	movea.l	SFXChnPtrs(pc,d3.w), a5
+	movea.l	SFXChnPtrs(pc,d3.w), a5 ; a5 is ff52b0 (sfxchnptrs + $10)
 	movea.l	a5, a2
 	moveq	#$B, d0
 loc_D084A:
-	clr.l	(a2)+
+	clr.l	(a2)+ ; looping to clear ff52b0 -> ff52e0
 	dbf	d0, loc_D084A
-	move.l	d1, $20(a5)
+	move.l	d1, $20(a5) ; appear to be moving sfx bytes into chn
 	move.w	(a1)+, (a5)
 	move.b	d5, $2(a5)
 	moveq	#0, d0
 	move.w	(a1)+, d0
-	add.l	a3, d0
+	add.l	a3, d0 ; appears to be another address relative to sfx
 	move.l	d0, $4(a5)
 	move.w	(a1)+, $8(a5)
 	move.b	#1, $E(a5)
