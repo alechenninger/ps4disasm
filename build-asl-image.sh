@@ -1,1 +1,1 @@
-podman build . -t asl:latest
+podman build --platform linux/arm64 . -t asl:latest
