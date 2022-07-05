@@ -5,3 +5,4 @@ dialogue_uncompressed = 1	; if 1, dialogue is stored uncompressed
 revision = 1			; 0 = Japanese; 1 = English; 2 = European
 light_sensitivity_patch = 0	; if 1, tone down flashing effects; values are taken from the Virtual Console version
 skip_opening = 0
+debug_start = 1
