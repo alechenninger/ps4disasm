@@ -1,4 +1,5 @@
 *~
+*.bin
 ps4.h
 ps4.p
 ps4.lst
