@@ -556,7 +556,7 @@
 	dc.b	"to fear Zio."
 	dc.b	$FD
 	dc.b	$F2, $03
-	dc.b	$FB
+	;dc.b	$FB
 	dc.b	$F4
 	dc.b	$07
 	dc.b	"You two, is anything wrong?"

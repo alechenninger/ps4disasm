@@ -385,7 +385,7 @@
 	dc.b	$FD
 	dc.b	"Sounds kind of suspicious!"
 	dc.b	$FD
-	dc.b	" "
+;	dc.b	" "
 	dc.b	$F4
 	dc.b	$0A
 	dc.b	"How dare you say that!"
