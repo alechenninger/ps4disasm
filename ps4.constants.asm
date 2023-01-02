@@ -82,6 +82,7 @@ StatusAndroidDead_Mask =  1<<StatusAndroidDead	; $40
 ; Properties and constants applicable to both field and battle objects
 obj_id = 0
 render_flags = 2	; byte	; bit 2 = if set, animation is finished
+							; bit 3 = if set, object can be interacted with
 mappings_addr = 8	; longword
 mappings = $C		; longword
 mappings_duration = $11	; byte
