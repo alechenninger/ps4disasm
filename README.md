@@ -2,6 +2,6 @@
 
 A Phantasy Star IV script rewrite.
 
-Script by Michael Henninger ("Genji Harvester")
+Script by Michael Henninger
 
 Credit to @lory90 for original disassembly and bugfixes.
