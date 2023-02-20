@@ -23,3 +23,9 @@ __pycache__
 out/
 scenes/
 etc/
+
+.build_log
+script/scenes/
+script/maps/
+ps4.grandcross.asm
+ps4disasm.*
