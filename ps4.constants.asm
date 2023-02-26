@@ -2329,8 +2329,9 @@ Save_Slot = ramaddr($FFFFF012)	; Starts from 0
 SRAM_Bytes_Sum = ramaddr($FFFFF014)
 
 Event_Flags = ramaddr($FFFFF100)
-Chest_Flags = ramaddr($FFFFF120)
-Temp_Event_Flags = ramaddr($FFFFF140)
+Extended_Event_Flags = ramaddr($FFFFF120)
+Chest_Flags = ramaddr($FFFFF140)
+Temp_Event_Flags = ramaddr($FFFFF156)
 Town_Flags = ramaddr($FFFFF160)
 
 World_Index = ramaddr($FFFFF400)	; 0 = Motavia; 1 = Dezolis; 2 = Rykros; 3 = Zelan; 4 = Kuran; 5 = Air Castle
