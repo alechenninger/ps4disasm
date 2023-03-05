@@ -167,5 +167,21 @@ popdlg		macro
 	movea.l d0, a0
 	endm
 
+loadscrollarrow		macro
+	lea	(Text_Scroll_Arrow).w, a4
+	move.w	#$30, (a4)
+	move.w	#$188, $2C(a4)
+	move.w	#$14A, $2E(a4)
+	; camera offset logic intentionally omitted
+	endm
+
+cleararrow		macro
+	clr.w	(a4)
+	; one or both of these
+	; prevent the arrow from lingering
+	jsr	(loc_69F6A).l
+	jsr	(DMAPlane_A_VInt).l
+	endm
+
 
 
