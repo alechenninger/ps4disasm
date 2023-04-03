@@ -181,6 +181,7 @@ cleararrow		macro
 	; prevent the arrow from lingering
 	jsr	(loc_69F6A).l
 	jsr	(DMAPlane_A_VInt).l
+	; May need to add this?
 	;clr.b	(Render_Sprites_In_Cutscenes).w
 	endm
 
