@@ -532,7 +532,7 @@
 	dc.b	$FF
 
 ; $91
-	dc.b	" "
+	;dc.b	" "	; bug?
 	dc.b	$F4
 	dc.b	$01
 	dc.b	"There's a notice posted over"
