@@ -81,7 +81,7 @@ StatusAndroidDead_Mask =  1<<StatusAndroidDead	; $40
 ; ---------------------------------------------------------------------------
 ; Properties and constants applicable to both field and battle objects
 obj_id = 0
-render_flags = 2	; byte	; bit 2 = if set, animation is finished
+render_flags = 2	; bitfield	; bit 1 = if clear, build sprites ; bit 2 = if set, animation is finished ; bit 4 = if set, set priority flag ; bit 7 = if set, set horizontal mirror flag
 mappings_addr = 8	; longword
 mappings = $C		; longword
 mappings_duration = $11	; byte
@@ -121,7 +121,9 @@ y_move_boundary = $3F	; byte ; number of steps NPC's can take between 0 and the 
 battle_mappings_idx = 6	; word
 sound = 6				; byte
 sound_length = 8		; word
+battle_sprite_tile_props1 = $13	; byte
 routine = $14			; word
+battle_sprite_tile_props2 = $1E
 battle_x_pos = $2C		; word
 battle_y_pos = $2E		; word
 target = $38			; longword
@@ -136,7 +138,6 @@ fighter_art_ptrs = 8		; longword
 fighter_x_pos = $C		; word
 vdp_dest_addr = $E		; word
 fighter_id = $12	; word ; characters and enemies ID; characters' ID start from 1
-fighter_pal_line = $1E
 ability = $24		; word
 palette_obj = $26	; longword
 reaction_flags	= $2A	; bitfield ; mainly for enemies, determines what attacks to use depending on some actions
@@ -2079,6 +2080,7 @@ DMA_Commands_Buffer = ramaddr($FFFFE000)
 
 Nem_Code_Table = ramaddr($FFFFE200)
 
+Win_Tile_Buffer = ramaddr($FFFFE220)
 
 Win_Char_Num = ramaddr($FFFFE3F0)	; number of characters in the menu
 Win_Saved_Char_ID = ramaddr($FFFFE3F2)
@@ -2212,6 +2214,9 @@ Found_Item_Type = ramaddr($FFFFECC4)	; 0 = content is an item; 1 = content is mo
 Map_Palettes_Addr = ramaddr($FFFFECD2)
 
 Tile_Coll_Run_Event_Flag = ramaddr($FFFFECE1)	; only bit 0 seems to be used; if set, it disables tile collision and event checks; this can only be changed in the Debug Window
+Poison_Frame_Counter = ramaddr($FFFFECE2)
+Paralyze_Frame_Counter = ramaddr($FFFFECE3)
+Field_Movement_Flags = ramaddr($FFFFECE5)	; bit 0 = if 1, characters are moving; bit 1 = if 1, update character stats and other stuff in the field; bit 2 = if 1, update stuff for vehicles such as SFX
 Field_Poison_Flag = ramaddr($FFFFECE6)	; if 0, poison won't hurt you while walking, otherwise set to 1
 Random_Battles_Flag = ramaddr($FFFFECE7)
 
@@ -2301,6 +2306,10 @@ VInt_Flag = ramaddr($FFFFEF12)
 DMA_Last_Write = ramaddr($FFFFEF14)
 
 VDP_Reg12_Val = ramaddr($FFFFEF16)
+
+Battle_Sprite_Table_Addr = ramaddr($FFFFEF18)
+
+Battle_Sprite_Link_Num = ramaddr($FFFFEF1A)
 
 Main_Frame_Count = ramaddr($FFFFEF1C)
 DMA_Commands_Buf_Slot = ramaddr($FFFFEF1E)
@@ -2394,6 +2403,7 @@ Palette_2_Line_3 = ramaddr($FFFFFBC0)
 Palette_2_Line_4 = ramaddr($FFFFFBE0)
 
 Sprite_Table_Buffer = ramaddr($FFFFFC00)
+Sprite_Table_Buffer_End = ramaddr($FFFFFE80)
 
 Palette_Table_Buffer_3 = ramaddr($FFFFFE80)
 Sprite_Num = ramaddr($FFFFFE80)
