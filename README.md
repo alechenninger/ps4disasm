@@ -1,6 +1,6 @@
 # PS4 Grand Cross modified ASM
 
-ps4grandcross.net
+https://ps4grandcross.net
 
 This assembly is a modified version of the commonly used assembly for PSIV distributed by @lory90. It contains modifications for the Grand Cross mod programming, but does not contain the Grand Cross script, which is compiled with a toolchain involving [rune](https://github.com/alechenninger/rune).
 
