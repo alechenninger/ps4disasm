@@ -6,3 +6,4 @@ revision = 1			; 0 = Japanese; 1 = English; 2 = European
 light_sensitivity_patch = 0	; if 1, tone down flashing effects; values are taken from the Virtual Console version
 skip_opening = 0
 debug_start = 1
+run_map_updates_during_dialog = 1 ; if map updates should be run during interactions. not completely tested.
