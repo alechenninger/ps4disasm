@@ -185,5 +185,8 @@ cleararrow		macro
 	;clr.b	(Render_Sprites_In_Cutscenes).w
 	endm
 
-
-
+dointeractionupdate		macro
+	; Broken, not sure why
+	;jsr	(Field_UpdateObjectsInteraction).l
+	jsr	(RunMapUpdates).l
+	endm

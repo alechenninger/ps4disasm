@@ -2072,6 +2072,7 @@ Text_Scroll_Arrow = ramaddr($FFFFC2C0)
 Field_Obj_Secondary = ramaddr($FFFFC300)	; all objects except the characters, the red cursor and scroll text arrow are stored here
 Hahn_Near_Basement = ramaddr($FFFFC300)
 Alys_Piata = ramaddr($FFFFC4C0)
+; Interaction_Object = ramaddr($FFFFF43A)
 
 Battle_Objects_Memory = ramaddr($FFFFD000)
 Command_Cursor = ramaddr($FFFFD000)
