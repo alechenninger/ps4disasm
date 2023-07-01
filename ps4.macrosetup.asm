@@ -190,3 +190,8 @@ dointeractionupdate		macro
 	;jsr	(Field_UpdateObjectsInteraction).l
 	jsr	(RunMapUpdates).l
 	endm
+
+rungrandcrossscene	macro	scene
+	include "script/scenes/SCENE/event.asm"
+	rts
+	endm
