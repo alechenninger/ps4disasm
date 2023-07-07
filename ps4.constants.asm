@@ -2215,7 +2215,7 @@ Found_Item_Type = ramaddr($FFFFECC4)	; 0 = content is an item; 1 = content is mo
 
 Map_Palettes_Addr = ramaddr($FFFFECD2)
 
-FieldObj_Step_Offset = ramaddr($FFFFECE0)	; 0 is slower, 1 is normal, 2 is faster. grand cross added 3 for even slower.
+FieldObj_Step_Offset = ramaddr($FFFFECE0)	; 0 is slower, 1 is normal, 2 is faster. grand cross added 3 for even slower, and 4 for in between 0 and 1.
 
 Tile_Coll_Run_Event_Flag = ramaddr($FFFFECE1)	; only bit 0 seems to be used; if set, it disables tile collision and event checks; this can only be changed in the Debug Window
 Poison_Frame_Counter = ramaddr($FFFFECE2)
