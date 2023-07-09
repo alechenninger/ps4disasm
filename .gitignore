@@ -29,3 +29,9 @@ script/scenes/
 script/maps/
 ps4.grandcross.asm
 ps4disasm.*
+script/constants.asm
+script/cutsceneptrs.asm
+script/dialog_trees.asm
+script/event_routines.asm
+script/eventptrs.asm
+script/start.asm
