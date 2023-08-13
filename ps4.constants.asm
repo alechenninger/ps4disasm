@@ -95,6 +95,7 @@ prev_obj = -$40
 
 ; ---------------------------------------------------------------------------
 ; Common field object properties
+priority_flag = 5 ; If 1, sprite is placed first (on top) in the sprite table (using Sprite_Table_Input_2)
 facing_dir = 6	; word ; 0 = DOWN;    4 = UP;     8 = RIGHT;    $C = LEFT
 mappings_idx = $10	; byte ; index for Sprite mappings
 offscreen_flag = $12 ; byte ; 0 = on-screen; 1 = off-screen
