@@ -9,3 +9,4 @@ debug_start = 1
 run_map_updates_during_dialog = 1 ; if map updates should be run during interactions. not completely tested.
 grand_cross = 1
 no_random_battles = 1
+large_dialog_window = 0 ; experimental. breaks things!
