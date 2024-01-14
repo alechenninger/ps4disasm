@@ -35,3 +35,6 @@ script/dialog_trees.asm
 script/event_routines.asm
 script/eventptrs.asm
 script/start.asm
+script/guild_job_titles.asm
+script/guild_jobs.asm
+script/guild_money_table.asm

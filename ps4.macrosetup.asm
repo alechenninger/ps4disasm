@@ -195,3 +195,14 @@ dointeractionupdate		macro
 	jsr	(RunMapUpdates).l
 .__noupdate
 	endm
+
+destroydialogandportrait		macro
+	;jsr	(DMAPlane_A_VInt).l
+	bclr	#0, ($FFFFECA4).w
+	beq.s	+
+	bset	#0, (Window_Render_Mode).w
+	jsr	(Window_Destroy).l
++
+	bset	#0, (Window_Render_Mode).w
+	jsr	(Window_Destroy).l
+	endm
