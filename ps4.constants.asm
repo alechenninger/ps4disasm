@@ -1908,8 +1908,12 @@ Title_ScrollDelay = $24				; number of lines to show for scrolling title text
 	else
 Title_ScrollDelay = $2C				; number of lines to show for scrolling title text
 	endif
-	
+
+	if grand_cross=1	
+Hunter_guild_cursor_x = $100		; X position of red cursor (pixels) for Hunter's guild window
+	else
 Hunter_guild_cursor_x = $108		; X position of red cursor (pixels) for Hunter's guild window
+	endif
 
 ; ---------------------------------------------------------------------------
 ; Credits
