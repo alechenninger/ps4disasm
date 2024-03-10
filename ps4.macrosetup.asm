@@ -192,6 +192,7 @@ dointeractionupdate		macro
 	; (as palette changes have a high chance of corrupting panel graphics)
 	tst.b	(Panel_Num).w
 	bne.s .__noupdate
+	jsr	(AnimateTiles).l
 	jsr	(RunMapUpdates).l
 .__noupdate
 	endm
