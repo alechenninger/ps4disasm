@@ -33,7 +33,9 @@ script/constants.asm
 script/cutsceneptrs.asm
 script/dialog_trees.asm
 script/event_routines.asm
+script/run_event_routines.asm
 script/eventptrs.asm
+script/runeventsjmptbl.asm
 script/start.asm
 script/guild_job_titles.asm
 script/guild_jobs.asm
