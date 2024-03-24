@@ -81,8 +81,14 @@ StatusAndroidDead_Mask =  1<<StatusAndroidDead	; $40
 ; ---------------------------------------------------------------------------
 ; Properties and constants applicable to both field and battle objects
 obj_id = 0
-render_flags = 2	; bitfield	; bit 1 = if clear, build sprites ; bit 2 = if set, animation is finished ; bit 4 = if set, set priority flag ; bit 7 = if set, set horizontal mirror flag
-							; bit 3 = if set, object can be interacted with
+render_flags = 2	; bitfield	
+									; bit 1 = if clear, build sprites
+									; bit 2 = if set, animation is finished 
+									; bit 3 = if set, object can be interacted with
+									; bit 4 = if set, set priority flag 
+									; bit 5 = ?, set in FieldObj_Animate, tested in Field_FillSpriteAttributes
+									; bit 6 = ?, set in FieldObj_Animate. 
+									; bit 7 = if set, set horizontal mirror flag
 mappings_addr = 8	; longword
 mappings = $C		; longword
 mappings_duration = $11	; byte
@@ -95,7 +101,8 @@ prev_obj = -$40
 
 ; ---------------------------------------------------------------------------
 ; Common field object properties
-priority_flag = 5 ; If 1, sprite is placed first (on top) in the sprite table (using Sprite_Table_Input_2)
+priority_flag = 5 ; If 1, sprite is placed first (on top) in the sprite table (using Sprite_Table_Input_2) (see Field_LoadSprites)
+									; In Grand Cross, setting bit #1 animates the object during scenes.
 facing_dir = 6	; word ; 0 = DOWN;    4 = UP;     8 = RIGHT;    $C = LEFT
 mappings_idx = $10	; byte ; index for Sprite mappings
 offscreen_flag = $12 ; byte ; 0 = on-screen; 1 = off-screen

@@ -187,11 +187,13 @@ cleararrow		macro
 
 dointeractionupdate		macro
 	; Broken, not sure why
-	;jsr	(Field_UpdateObjectsInteraction).l
 	; Skip updates if there are panels
 	; (as palette changes have a high chance of corrupting panel graphics)
 	tst.b	(Panel_Num).w
 	bne.s .__noupdate
+	movem.l d0-a6, -(sp)
+	jsr	(Field_UpdateObjectsInteraction).l
+	movem.l (sp)+, d0-a6
 	jsr	(AnimateTiles).l
 	jsr	(RunMapUpdates).l
 .__noupdate
