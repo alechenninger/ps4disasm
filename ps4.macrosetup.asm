@@ -186,7 +186,6 @@ cleararrow		macro
 	endm
 
 dointeractionupdate		macro
-	; Broken, not sure why
 	; Skip updates if there are panels
 	; (as palette changes have a high chance of corrupting panel graphics)
 	tst.b	(Panel_Num).w
