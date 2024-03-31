@@ -11,8 +11,8 @@ level = 8		; word
 exp = $A		; longword
 curr_hp = $E	; word
 max_hp = $10	; word
-curr_tp = $12	; word
-max_tp = $14	; word
+curr_tp = $12	; word – for enemies this is attack element
+max_tp = $14	; word – for enemies this is attack status effect
 status = $16		; byte ; bit 0 = poisoned; bit 1 = paralyzed; bit 2 = dead; bit 3 = asleep; bit 4 = tech sealed; bit 5 = asleep; bit 6 = dead (for androids)
 strength = $18		; byte
 strength_mod = $19	; byte
@@ -54,6 +54,7 @@ head = $4E				; byte
 body = $4F				; byte
 techs = $52
 skills = $62
+enemy_id = $68
 curr_skill_uses = $6A
 max_skill_uses = $6B
 gain_exp_flag = $7A		; byte ; flag which is set if a character participates and wins a battle at least once. After that characters start gaining experience even if they are not in the party
@@ -2021,9 +2022,17 @@ Battle_Item_Index = ramaddr($FFFF41C4)		; index of item selected (this is the cu
 Battle_Macro_Index = ramaddr($FFFF41D6)
 Battle_Macro_Flag = ramaddr($FFFF41D8)		; set if a macro is going on
 
+; See "Battle Formation Data" documentation.
 Enemy_Formation_Data = ramaddr($FFFF41F0)
+Enemy_Ambush_Chance = ramaddr($FFFF41F0)	; Checked against highest agility to determine ambush battle priority.
+Enemy_Run_Chance = ramaddr($FFFF41F1)			; Checked against highest agility to determine run chance. If >=F0, cannot run.
 Item_Drop_Rate = ramaddr($FFFF41F2)
 Dropped_Item = ramaddr($FFFF41F3)
+Enemy_Count = ramaddr($FFFF41F4)
+Enemy_Groups = ramaddr($FFFF41F5)
+Enemy_Group_1 = ramaddr($FFFF41F5)		; Bit field. Bits 0-3 correspond to enemies 1-4.
+Enemy_Group_2 = ramaddr($FFFF41F6)		; Bit field. Bits 0-3 correspond to enemies 1-4.
+Enemy_Positions = ramaddr($FFFF41F7)	; 2 bytes per enemy: enemy ID and position.
 
 Enemy_Stats = ramaddr($FFFF4200)
 Enemy_Stats_2 = ramaddr($FFFF4280)
