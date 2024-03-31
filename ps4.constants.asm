@@ -2438,3 +2438,7 @@ Sprite_Table_Buf_Addr = ramaddr($FFFFFE82)
 Init_String_Addr = ramaddr($FFFFFFFC)
 
 RAM_End = ramaddr($FFFFFFFF)
+
+; Grand Cross script
+; ------------------
+CharName_Chaz = "Shay"
