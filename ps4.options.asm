@@ -10,3 +10,4 @@ run_map_updates_during_dialog = 1 ; if map updates should be run during interact
 grand_cross = 1
 no_random_battles = 1
 large_dialog_window = 0 ; experimental. breaks things!
+external_formation_data = 1
