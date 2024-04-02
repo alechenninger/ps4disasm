@@ -67,21 +67,19 @@ def main():
         output_file_path = os.path.join(script_dir, output_file_name)
 
         with tempfile.NamedTemporaryFile() as uncompressed:
-            if not compile_constants(input_file_path, uncompressed.name):
+            if compile_constants(input_file_path, uncompressed.name):
+                print(f"Successfully compiled: {input_file_path} to {uncompressed.name}")  # nopep8
+            else:
                 success = False
                 continue
-            else:
-                print(f"Successfully compiled: {input_file_path} to {uncompressed.name}")  # nopep8
 
-            if not kosinski_compress(uncompressed.name, output_file_path):
-                success = False
-            else:
+            if kosinski_compress(uncompressed.name, output_file_path):
                 print(f"Successfully compressed: {uncompressed.name} to {output_file_path}")  # nopep8
+            else:
+                success = False
 
-    if not success:
-        sys.exit(1)
+    return 0 if success else 1
 
 
 if __name__ == "__main__":
-    main()
-    sys.exit(0)
+    sys.exit(main())
