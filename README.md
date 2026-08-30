@@ -1,3 +1,9 @@
+> [!IMPORTANT]
+> This assembly is no longer up to date with the latest Grand Cross modifications.
+> The latest assembly is private to avoid spoilers.
+> We may release the Grand Cross modified base game and engine later.
+> If you are interested, reach out on social media through our website.
+
 # PS4 Grand Cross modified ASM
 
 https://ps4grandcross.net
